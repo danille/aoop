@@ -15,14 +15,25 @@ private:
     int length;
 
 public:
+    // Constructors
     CTable();
-    CTable(string name, int tableLength);
-    CTable(CTable& otherTable);
+    CTable(string name, int length);
+    CTable(const CTable& otherTable);
 
-    void changeLenght(int newLength, int* succ);
-    void put(int position, int value, int* succ);
-    int get(int position, int* succ);
+    void put(int position, int value, bool *success);
+    int get(int position, int* succ) const;
+
+    const string getName() const;
+
+    void setName(const string &name, bool *success);
+
+    int getLength() const;
+
+    void setLength(int length, bool *success);
+
     CTable* clone(int* succ);
-    string toString(int* succ);
+    string toString();
+
+    ~CTable();
 };
 #endif //LAB1_CTABLE_H
