@@ -3,6 +3,7 @@
 //
 #define DEFAULT_ARRAY_SIZE 10
 #define DEFAULT_ARRAY_NAME "default_name"
+#define END_LINE_CHAR "\n"
 
 #include "CTable.h"
 
@@ -19,15 +20,16 @@ CTable::CTable(string name, int tableLength) {
 }
 
 CTable::CTable(const CTable &otherTable) {
+    cout << "Run copying constructor" << endl;
     this->name = otherTable.name + "_copy";
     this->length = otherTable.length;
     this->arr = new int[otherTable.length];
 
-    int successor;
+    bool success;
 
     for (int i = 0; i < otherTable.length; i++){
-        this->arr[i] = otherTable.get(i, &successor);
-        if (successor != 0) {
+        this->arr[i] = otherTable.get(i, &success);
+        if (!success) {
             cout << "Something goes wrong while getting " << i << "th element from " << otherTable.name << endl;
         }
     }
@@ -54,4 +56,40 @@ void CTable::setLength(int length, bool *success) {
 
 CTable::~CTable() {
     delete[] arr;
+}
+
+void CTable::insert(int position, int value, bool *success) {
+    *success = (position < length && position >= 0);
+    if (*success) {
+        arr[position] = value;
+    }
+}
+
+int CTable::get(int position, bool *success) const {
+    *success = (position < length && position >= 0);
+    if (*success) {
+        return arr[position];
+    } else {
+        return -1;
+    }
+}
+
+CTable *CTable::clone(bool *success) {
+    return new CTable(*this);
+}
+
+string CTable::toString() {
+    string result;
+    result += ("Name: " + name + END_LINE_CHAR);
+    result += ("Length: " + to_string(length) + END_LINE_CHAR);
+    result += "Elements: ";
+
+    for (int i = 0; i < length; i++) {
+        result += to_string(arr[i]);
+        result += ", ";
+    }
+
+    // Remove trailing comma and space
+    result = result.substr(0, result.size() - 2);
+    return result;
 }

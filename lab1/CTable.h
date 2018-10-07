@@ -20,8 +20,8 @@ public:
     CTable(string name, int length);
     CTable(const CTable& otherTable);
 
-    void put(int position, int value, bool *success);
-    int get(int position, int* succ) const;
+    void insert(int position, int value, bool *success);
+    int get(int position, bool *success) const;
 
     const string getName() const;
 
@@ -31,7 +31,7 @@ public:
 
     void setLength(int length, bool *success);
 
-    CTable* clone(int* succ);
+    CTable *clone(bool *success);
     string toString();
 
     ~CTable();
