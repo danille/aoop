@@ -8,12 +8,14 @@
 #include "CTable.h"
 
 CTable::CTable() {
+    cout << "Run default constructor" << END_LINE_CHAR;
     this->name = DEFAULT_ARRAY_NAME;
     this->length = DEFAULT_ARRAY_SIZE;
     this->arr = new int[DEFAULT_ARRAY_SIZE];
 }
 
 CTable::CTable(string name, int tableLength) {
+    cout << "Run parametric constructor" << END_LINE_CHAR;
     this->name = name;
     this->length = tableLength;
     this->arr = new int[tableLength];
@@ -27,7 +29,7 @@ CTable::CTable(const CTable &otherTable) {
 
     bool success;
 
-    for (int i = 0; i < otherTable.length; i++){
+    for (int i = 0; i < otherTable.length; i++) {
         this->arr[i] = otherTable.get(i, &success);
         if (!success) {
             cout << "Something goes wrong while getting " << i << "th element from " << otherTable.name << endl;
@@ -49,14 +51,21 @@ int CTable::getLength() const {
 }
 
 void CTable::setLength(int length, bool *success) {
-    this->length = length;
-    *success = true;
+    *success = length >= 0;
+    if (*success) {
+        this->length = length;
+        // Dynamically allocate memory for temp array
+        int *temp = new int[length];
+        // Copy values to new array from
+        for (int i = 0; i < length; i++) {
+            temp[i] = arr[i];
+        }
+        // Deallocate memory for old arr
+        delete[] arr;
+        arr = temp;
+    }
 }
 
-
-CTable::~CTable() {
-    delete[] arr;
-}
 
 void CTable::insert(int position, int value, bool *success) {
     *success = (position < length && position >= 0);
@@ -92,4 +101,9 @@ string CTable::toString() {
     // Remove trailing comma and space
     result = result.substr(0, result.size() - 2);
     return result;
+}
+
+CTable::~CTable() {
+    cout << "Running destructor of table " << name << END_LINE_CHAR;
+    delete[] arr;
 }

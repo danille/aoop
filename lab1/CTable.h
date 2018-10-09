@@ -6,21 +6,25 @@
 #define LAB1_CTABLE_H
 
 #include "iostream"
+
 using namespace std;
 
 class CTable {
 private:
     string name;
-    int* arr;
+    int *arr;
     int length;
 
 public:
     // Constructors
     CTable();
+
     CTable(string name, int length);
-    CTable(const CTable& otherTable);
+
+    CTable(const CTable &otherTable);
 
     void insert(int position, int value, bool *success);
+
     int get(int position, bool *success) const;
 
     const string getName() const;
@@ -32,8 +36,10 @@ public:
     void setLength(int length, bool *success);
 
     CTable *clone(bool *success);
+
     string toString();
 
     ~CTable();
 };
+
 #endif //LAB1_CTABLE_H
