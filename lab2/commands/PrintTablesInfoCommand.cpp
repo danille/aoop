@@ -5,7 +5,7 @@
 #include "PrintTablesInfoCommand.h"
 
 
-void PrintTablesInfoCommand::run() {
+void PrintTablesInfoCommand::execute() {
     tableManager->printTableInfo(*tablesVector, successor);
 }
 

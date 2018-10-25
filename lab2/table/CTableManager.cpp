@@ -50,7 +50,7 @@ void CTableManager::removeTable(vector<CTable *> &tablesVector, bool *success) {
 
     if (*success) {
         size -= 1;
-        // Explicitly delete object, if not - memory leak. Why? Does vector::erase() not run delete?
+        // Explicitly delete object, if not - memory leak. Why? Does vector::erase() not execute delete?
         delete tablesVector[index];
         tablesVector.erase(tablesVector.begin() + index);
 

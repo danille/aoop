@@ -10,7 +10,7 @@ void CMenuCommand::run() {
     if (commandToExecute == nullptr) {
         cout << EMPTY_COMMAND_TEXT << endl;
     } else {
-        commandToExecute->runCommand();
+        commandToExecute->execute();
     }
 
     terminate();

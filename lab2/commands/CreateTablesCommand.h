@@ -7,16 +7,17 @@
 
 
 #include "CCommand.h"
-#include "../CTableManager.h"
+#include "../table/CTableManager.h"
 #include "TableCommand.h"
 
-class CreateTablesCommand: public TableCommand {
-    CTableManager* tableManager;
-    vector<CTable*>* tablesVector;
-    bool* successor;
+class CreateTablesCommand : public TableCommand {
+    CTableManager *tableManager;
+    vector<CTable *> *tablesVector;
+    bool *successor;
 public:
-    CreateTablesCommand(CTableManager* tableManager, vector<CTable*> &tablesVector, bool* successor);
-    void run();
+    CreateTablesCommand(CTableManager *tableManager, vector<CTable *> &tablesVector, bool *successor);
+
+    void execute();
 };
 
 

@@ -19,7 +19,7 @@ private:
 public:
     void createTables(vector<CTable *> &tablesVector, bool *success);
 
-    void setTableLength(vector<CTable *> &tablesVector,  bool *success);
+    void setTableLength(vector<CTable *> &tablesVector, bool *success);
 
     void removeTable(vector<CTable *> &tablesVector, bool *success);
 
@@ -45,11 +45,11 @@ public:
 
     bool isIndexValid(int index, int size);
 
-    void printAllTables(vector<CTable*>& tablesVector, bool* success);
+    void printAllTables(vector<CTable *> &tablesVector, bool *success);
 
-    void executeTest(vector<CTable*>& tablesVector, bool* success);
+    void executeTest(vector<CTable *> &tablesVector, bool *success);
 
-    void doNothing(CTable cTable, bool* success);
+    void doNothing(CTable cTable, bool *success);
 };
 
 #endif //LAB1_CTABLEMANAGER_H

@@ -7,7 +7,7 @@
 
 
 #include "CCommand.h"
-#include "../CTableManager.h"
+#include "../table/CTableManager.h"
 #include "TableCommand.h"
 
 class PrintTablesInfoCommand : public TableCommand {
@@ -15,7 +15,7 @@ class PrintTablesInfoCommand : public TableCommand {
 public:
     PrintTablesInfoCommand(CTableManager *tableManager, vector<CTable *> &tablesVector, bool *successor);
 
-    void run();
+    void execute();
 };
 
 

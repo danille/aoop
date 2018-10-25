@@ -9,7 +9,7 @@
 class CCommand {
 public:
     CCommand();
-    void runCommand();
+    virtual void execute();
     ~CCommand();
 };
 

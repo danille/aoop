@@ -8,7 +8,7 @@
 #define DEFAULT_COMMAND_MESSAGE "Komenda domyślna"
 using namespace std;
 
-void CCommand::runCommand() {
+void CCommand::execute() {
     cout << DEFAULT_COMMAND_MESSAGE << endl;
 }
 

@@ -7,8 +7,8 @@
 
 
 #include "CCommand.h"
-#include "../CTableManager.h"
-#include "../CTable.h"
+#include "../table/CTableManager.h"
+#include "../table/CTable.h"
 
 class TableCommand: public CCommand {
 protected:

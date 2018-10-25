@@ -4,7 +4,7 @@
 
 #include "CreateTablesCommand.h"
 
-void CreateTablesCommand::run() {
+void CreateTablesCommand::execute() {
     tableManager->createTables(*tablesVector, successor);
 }
 
