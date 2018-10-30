@@ -6,6 +6,7 @@
 
 void CreateTablesCommand::execute() {
     tableManager->createTables(*tablesVector, successor);
+    validateOperation();
 }
 
 CreateTablesCommand::CreateTablesCommand(CTableManager *tableManager, vector<CTable *> &tablesVector, bool *successor)

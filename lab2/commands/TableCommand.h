@@ -17,6 +17,7 @@ protected:
     bool* successor;
 public:
     TableCommand(CTableManager* tableManager, vector<CTable*> &tablesVector, bool* successor);
+    void validateOperation();
 };
 
 

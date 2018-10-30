@@ -7,6 +7,7 @@
 
 void PrintTablesInfoCommand::execute() {
     tableManager->printTableInfo(*tablesVector, successor);
+    validateOperation();
 }
 
 PrintTablesInfoCommand::PrintTablesInfoCommand(CTableManager *tableManager, vector<CTable *> &tablesVector,

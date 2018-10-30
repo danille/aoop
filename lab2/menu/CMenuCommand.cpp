@@ -28,7 +28,7 @@ string CMenuCommand::getPath() {
     if (parentItem == nullptr) {
         return getCommand();
     } else {
-        return parentItem->getPath() + getCommand();
+        return parentItem->getPath() + "->" + getCommand();
     }
 }
 

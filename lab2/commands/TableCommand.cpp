@@ -9,3 +9,9 @@ TableCommand::TableCommand(CTableManager *tableManager, vector<CTable *> &tables
     this->tablesVector = &tablesVector;
     this->successor = successor;
 }
+
+void TableCommand::validateOperation() {
+    if (!*successor) {
+        cout << "Operation failed! Please, try again!" << endl;
+    }
+}

@@ -8,7 +8,7 @@ MenuApplication::MenuApplication() {
     tableManager = new CTableManager();
     tablesVector = new vector<CTable*>();
     successor = new bool;
-    root = new CMenu("Root", "");
+    root = new CMenu("Root", "root");
 }
 
 MenuApplication::~MenuApplication() {

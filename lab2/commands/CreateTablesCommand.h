@@ -11,9 +11,9 @@
 #include "TableCommand.h"
 
 class CreateTablesCommand : public TableCommand {
-    CTableManager *tableManager;
-    vector<CTable *> *tablesVector;
-    bool *successor;
+//    CTableManager *tableManager;
+//    vector<CTable *> *tablesVector;
+//    bool *successor;
 public:
     CreateTablesCommand(CTableManager *tableManager, vector<CTable *> &tablesVector, bool *successor);
 
